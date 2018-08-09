@@ -1,0 +1,137 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="RedCoSite.SiteMaster" %>
+<%@ Register assembly="DevExpress.Web.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web" tagprefix="dx" %>
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> Portal REDCO</title>
+    
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="respond" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+                </Scripts>
+            
+    
+        </asp:ScriptManager>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="Css/Estilo.css" type ="text/css" />
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <%--navbar--%>
+           <nav class="navbar navbar-default" style="margin-top:-50px; background-color:black; color:white; font-weight:bold">
+        <div class="container-fluid">
+        <%--  <dx:ASPxButton Text="MENU" ID="btnMenu" runat="server" AutoPostBack="false" theme="SoftOrange" OnClick="btnMenu_Click" Paddings-Padding="23px" Font-Size="15"></dx:ASPxButton>  --%>
+            <div class="navbar-header">
+           <%-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar4">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>--%>
+            
+              <a class="navbar-brand" href="PrincipalPage.aspx"><img style="width: 40px;" src="Image/RedPacifico.png" alt="RedCo"></a>
+              <a href="Menu.aspx" class="btn btn-success btn-lg" style="padding:34px; border-radius:0px; background-color:#f87c1d; line-height:0 ">
+              MENU
+              </a>     
+          </div>
+          <div id="navbar4" class="navbar-collapse collapse" style="float:right">
+              <div class="navbar-nav">
+              </div>
+            
+
+            <ul class="nav navbar-nav"> 
+              <li style="margin-top:12px; margin-right:10px">
+                        
+                  <%-- <a href="Menu.aspx" role="button" aria-expanded="false"><asp:Image runat="server" Width="40px"/>MENU</a>--%>
+                  <%--<dx:ASPxButton Text="MENU" ID="btnMenu" runat="server" AutoPostBack="false" theme="SoftOrange" OnClick="btnMenu_Click" Paddings-Padding="13px"></dx:ASPxButton>--%>
+              </li>    
+              <li class="active" style="top:15px">
+                  <div>
+                      <dx:ASPxComboBox runat="server" ID="cmbEstacionesUsuario" Caption="Estación " AutoPostBack="true" Font-Bold="true"  OnSelectedIndexChanged="cmbEstacionesUsuario_SelectedIndexChanged"  ></dx:ASPxComboBox> 
+                  </div>
+                  <asp:Label ID="lblUsuario" runat="server" /></li>
+              <%--<%-- Notificaciones --%>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><asp:Image runat="server" Width="40px" ImageUrl="~/Image/user-profile.png" /> <span class="caret" style="font-weight:bold; color:white"></span></a>
+                <ul class="dropdown-menu pull-right" role="menu">
+                  <li>
+                      <a runat="server" id="btnLogOut" onserverclick="btnLogOut_ServerClick"  >LogOut</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <!--/.nav-collapse -->
+        </div>
+        <!--/.container-fluid -->
+      </nav>
+        <%--navbar end--%>
+        <%--SideMenu--%>
+  <div id="mySidenav" class="sidenav" style="margin-top:70px; display:none" >
+  <a href="javascript:void(0)" class="closebtn">MENU</a>
+  <a href="MenuPedido.aspx">Pedidos</a>
+  <a href="SaldoPage.aspx">Saldos</a>
+  <a href="#">Clients</a>
+  <a href="#">Contact</a>
+</div>
+        <%--SideMenu end--%>
+        <div id="FormContainer" class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr />
+            <footer>
+                <p>&copy; <%: DateTime.Now.Year %> - Fondo Red Combustible</p>
+            </footer>
+        </div>
+
+    </form>
+    <script>
+        $(document).ready(function () {
+            openNav();
+        })
+        /* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+            //document.getElementById("FormContainer").style.marginLeft = "250px";
+            //document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+        }
+
+        /* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("FormContainer").style.marginLeft = "0";
+            //document.body.style.backgroundColor = "white";
+        }
+        </script>
+</body>
+</html>

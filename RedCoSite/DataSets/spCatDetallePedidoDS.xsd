@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="spCatDetallePedidoDS" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+  <xs:element name="spCatDetallePedidoDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="spCatDetallePedido" msprop:Schema="spCatDetallePedido">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DetallePedidoID" type="xs:int" />
+              <xs:element name="Volumen" type="xs:double" minOccurs="0" />
+              <xs:element name="Precio" type="xs:double" minOccurs="0" />
+              <xs:element name="Subtotal" type="xs:double" minOccurs="0" />
+              <xs:element name="IVA" type="xs:double" minOccurs="0" />
+              <xs:element name="IEPS" type="xs:double" minOccurs="0" />
+              <xs:element name="Total" type="xs:double" minOccurs="0" />
+              <xs:element name="Descuento" type="xs:double" minOccurs="0" />
+              <xs:element name="NoItems" type="xs:int" minOccurs="0" />
+              <xs:element name="PedidoID" type="xs:int" />
+              <xs:element name="ProductoID" type="xs:int" />
+              <xs:element name="TerminalID" type="xs:int" />
+              <xs:element name="VehiculoID" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

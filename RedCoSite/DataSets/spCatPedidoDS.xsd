@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="spCatPedidoDS" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+  <xs:element name="spCatPedidoDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="spCatPedido" msprop:Schema="spCatPedido">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PedidoID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" type="xs:int" />
+              <xs:element name="Serie" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Folio" type="xs:int" minOccurs="0" />
+              <xs:element name="Fecha" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="FechaModificacion" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Ejercicio" type="xs:int" minOccurs="0" />
+              <xs:element name="Periodo" type="xs:int" minOccurs="0" />
+              <xs:element name="Dia" type="xs:int" minOccurs="0" />
+              <xs:element name="Subtotal" type="xs:double" minOccurs="0" />
+              <xs:element name="IVA" type="xs:double" minOccurs="0" />
+              <xs:element name="IEPS" type="xs:double" minOccurs="0" />
+              <xs:element name="Total" type="xs:double" minOccurs="0" />
+              <xs:element name="Descuento" type="xs:double" minOccurs="0" />
+              <xs:element name="Status" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Observacion" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EstacionID" type="xs:int" minOccurs="0" />
+              <xs:element name="ConfiguracionID" type="xs:int" />
+              <xs:element name="UsuarioID" type="xs:int" minOccurs="0" />
+              <xs:element name="estacionnombre" msdata:Caption="NewField" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="65536" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="StatusID" msdata:Caption="NewField" type="xs:int" minOccurs="0" />
+              <xs:element name="statusnombre" msdata:Caption="NewField" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="65536" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ProductoID" msdata:Caption="NewField" type="xs:int" minOccurs="0" />
+              <xs:element name="ProductoNombre" msdata:Caption="NewField" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
