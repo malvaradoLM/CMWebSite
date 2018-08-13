@@ -16,7 +16,6 @@ namespace RedCoSite.Data
         private RPSuiteServer.IRPLoginService fLoginService;
         private RPSuiteServer.IRPDataService fDataService;
         private RPSuiteServer.IRPDataService_Async fDataServiceAsync;
-        // private DataModuleUserInfo _Info;
         private UserInfo _Info;
         private bool _OKEnter;
 
@@ -40,8 +39,16 @@ namespace RedCoSite.Data
             LinkServices();
         }
 
+#pragma warning disable CS0436 // Type conflicts with imported type
+#pragma warning disable CS0436 // Type conflicts with imported type
+#pragma warning disable CS0436 // Type conflicts with imported type
         private static readonly Lazy<DataModule> lazy =new Lazy<DataModule>(() => new DataModule());
+#pragma warning restore CS0436 // Type conflicts with imported type
+#pragma warning restore CS0436 // Type conflicts with imported type
+#pragma warning restore CS0436 // Type conflicts with imported type
+#pragma warning disable CS0436 // Type conflicts with imported type
         public static DataModule Instance { get { return lazy.Value; } }
+#pragma warning restore CS0436 // Type conflicts with imported type
 
         public static RPSuiteServer.IRPLoginService LoginService { get { return Instance.fLoginService; } }
         public static RPSuiteServer.IRPDataService DataService { get { return Instance.fDataService; } }
@@ -61,16 +68,23 @@ namespace RedCoSite.Data
         {  
             if (ds == null)
             {
-                ds = new DataSet();
+                ds = new System.Data.DataSet();
             }
-            if (Parametros != null)
+            try
             {
-                TableRequestInfo rInfo = new TableRequestInfo();
-                rInfo.Parameters = Parametros;
-                Instance.remoteDataAdapter.Fill(ds, TableName, rInfo, true);
-            } else
+                if (Parametros != null)
+                {
+                    TableRequestInfo rInfo = new TableRequestInfo();
+                    rInfo.Parameters = Parametros;
+                    Instance.remoteDataAdapter.Fill(ds, TableName, rInfo, true);
+                } else
+                {
+                    Instance.remoteDataAdapter.Fill(ds, new string[] { TableName }, true);
+                }
+            }
+            catch (Exception ex)
             {
-                Instance.remoteDataAdapter.Fill(ds, new string[] { TableName }, true);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -99,17 +113,11 @@ namespace RedCoSite.Data
             get { return Instance.ImageCollection16; }
         }
 
-        //public static DataModuleUserInfo Seguridad
-        //{
-        //    get { return Instance._Info; }
-        //    set { Instance._Info = value; }
-        //}
         public static UserInfo Seguridad
         {
             get { return Instance._Info; }
             set { Instance._Info = value; }
         }
-
 
         public static bool OKEnter
         {

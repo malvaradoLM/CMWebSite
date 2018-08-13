@@ -87,7 +87,7 @@ namespace RedCoSite
                     pedido.EstacionID = tp.EstacionID;
                     pedido.ConfiguracionID = 1;
                     pedido.Serie = System.Configuration.ConfigurationManager.AppSettings["Serie"];
-                    pedido.Ejercicio = DateTime.Today.Year;
+                    pedido.Ejercisio = DateTime.Today.Year;
                     pedido.Periodo = DateTime.Today.Month;
                     pedido.Dia = DateTime.Today.Day;
                     pedido.Folio = 0;

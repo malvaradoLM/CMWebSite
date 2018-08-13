@@ -507,7 +507,10 @@
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="\\vmware-host\Shared Folders\Proyectos\RPSuite 1.0\RPSuiteServer\RPSuiteServer.csproj">
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\CMSuiteServer\RPSuiteServer.csproj">
       <Project>{a5453b9c-7e66-4da7-8ca0-2ae983896619}</Project>
       <Name>RPSuiteServer</Name>
     </ProjectReference>

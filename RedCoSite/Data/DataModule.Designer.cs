@@ -35,10 +35,8 @@
             this.ROChannel = new RemObjects.SDK.IpHttpClientChannel();
             this.dataStreamer = new RemObjects.DataAbstract.Bin2DataStreamer(this.components);
             this.remoteDataAdapter = new RemObjects.DataAbstract.RemoteDataAdapter(this.components);
-            this.ImageCollection48 = new DevExpress.Utils.SvgImageCollection(this.components);
             this.ImageCollection16 = new DevExpress.Utils.SvgImageCollection(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.remoteDataAdapter)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ImageCollection48)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImageCollection16)).BeginInit();
             // 
             // ROMessage
@@ -60,7 +58,7 @@
             this.ROChannel.Password = "";
             this.ROChannel.SslOptions.Certificate = null;
             this.ROChannel.SslOptions.TargetHostName = null;
-            this.ROChannel.TargetUrl = "http://localhost:9200/bin";
+            this.ROChannel.TargetUrl = "http://localhost:9201/bin";
             this.ROChannel.UserName = "";
             // 
             // dataStreamer
@@ -95,19 +93,6 @@
             this.remoteDataAdapter.TargetUrl = null;
             this.remoteDataAdapter.UserName = null;
             // 
-            // ImageCollection48
-            // 
-            this.ImageCollection48.ImageSize = new System.Drawing.Size(48, 48);
-            this.ImageCollection48.Add("0", ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("ImageCollection48.0"))));
-            this.ImageCollection48.Add("1", ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("ImageCollection48.1"))));
-            this.ImageCollection48.Add("2", ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("ImageCollection48.2"))));
-            this.ImageCollection48.Add("3", ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("ImageCollection48.3"))));
-            this.ImageCollection48.Add("4", ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("ImageCollection48.4"))));
-            this.ImageCollection48.Add("5", ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("ImageCollection48.5"))));
-            this.ImageCollection48.Add("6", ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("ImageCollection48.6"))));
-            this.ImageCollection48.Add("7", ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("ImageCollection48.7"))));
-            this.ImageCollection48.Add("8", ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("ImageCollection48.8"))));
-            // 
             // ImageCollection16
             // 
             this.ImageCollection16.Add("0", ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("ImageCollection16.0"))));
@@ -125,7 +110,6 @@
             this.ImageCollection16.Add("12", ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("ImageCollection16.12"))));
             this.ImageCollection16.Add("13", ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("ImageCollection16.13"))));
             ((System.ComponentModel.ISupportInitialize)(this.remoteDataAdapter)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ImageCollection48)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImageCollection16)).EndInit();
 
         }
