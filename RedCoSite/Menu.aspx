@@ -17,7 +17,7 @@
             </tr>
         <tr>
             <td style="text-align:right">
-                <a href="#" class="btn btn-danger btn-lg btncustom">
+                <a href="ClientePage.aspx" class="btn btn-danger btn-lg btncustom">
       <%--<span class="glyphicon glyphicon-lock"></span>--%>
                     <img src="Image/people-customers.png" runat="server" /><h2>CLIENTES </h2>
     </a>

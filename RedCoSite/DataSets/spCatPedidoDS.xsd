@@ -6,7 +6,7 @@
         <xs:element name="spCatPedido" msprop:Schema="spCatPedido">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="PedidoID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" type="xs:int" />
+              <xs:element name="PedidoID" type="xs:int" />
               <xs:element name="Serie" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -25,7 +25,7 @@
               <xs:element name="IEPS" type="xs:double" minOccurs="0" />
               <xs:element name="Total" type="xs:double" minOccurs="0" />
               <xs:element name="Descuento" type="xs:double" minOccurs="0" />
-              <xs:element name="Status" type="xs:boolean" minOccurs="0" />
+              <xs:element name="StatusID" type="xs:int" minOccurs="0" />
               <xs:element name="Observacion" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -33,29 +33,35 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="EstacionID" type="xs:int" minOccurs="0" />
+              <xs:element name="EstacionID" type="xs:int" />
+              <xs:element name="estacionnombre" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
               <xs:element name="ConfiguracionID" type="xs:int" />
+              <xs:element name="configuracionnombre" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
               <xs:element name="UsuarioID" type="xs:int" minOccurs="0" />
-              <xs:element name="estacionnombre" msdata:Caption="NewField" minOccurs="0">
+              <xs:element name="statusnombre" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="65536" />
+                    <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="StatusID" msdata:Caption="NewField" type="xs:int" minOccurs="0" />
-              <xs:element name="statusnombre" msdata:Caption="NewField" minOccurs="0">
+              <xs:element name="ProductoID" type="xs:int" />
+              <xs:element name="ProductoNombre" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="65536" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="ProductoID" msdata:Caption="NewField" type="xs:int" minOccurs="0" />
-              <xs:element name="ProductoNombre" msdata:Caption="NewField" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="100" />
+                    <xs:maxLength value="250" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>

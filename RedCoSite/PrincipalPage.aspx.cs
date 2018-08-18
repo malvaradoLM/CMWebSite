@@ -8,6 +8,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Linq;
 using RedCoSite.Data;
@@ -59,12 +60,19 @@ namespace RedCoSite
         }
         private void getInfoTable()
         {
-            DataTable dt = ds.Tables["spCatPedido"];
-            IEnumerable<DataRow> query = from dts in dt.AsEnumerable() select dts;
-            foreach (DataRow dr in query)
+            try
             {
-                fillDocumentxml(dr.Field<DateTime>("Fecha").ToString("M/d/yyyy"), "Pedido: "+ dr.Field<int>("PedidoID").ToString()+ ", Producto: "+ dr.Field<string>("ProductoNombre") + " Estatus Pedido: "+ dr.Field<string>("statusnombre"), dr.Field<string>("ProductoNombre"), dr.Field<string>("statusnombre"));
-                GetStatusPedido(dr.Field<int>("StatusID"));
+                DataTable dt = ds.Tables["spCatPedido"];
+                IEnumerable<DataRow> query = from dts in dt.AsEnumerable() select dts;
+                foreach (DataRow dr in query)
+                {
+                    fillDocumentxml(dr.Field<DateTime>("Fecha").ToString("M/d/yyyy"), "Pedido: " + dr.Field<int>("PedidoID").ToString() + ", Producto: " + dr.Field<string>("ProductoNombre") + " Estatus Pedido: " + dr.Field<string>("statusnombre"), dr.Field<string>("ProductoNombre"), dr.Field<string>("statusnombre"));
+                    GetStatusPedido(dr.Field<int>("StatusID"));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
 
@@ -102,96 +110,109 @@ namespace RedCoSite
         }
         private void getPedido(string UsuarioID)
         {
-            Params.Clear();
-            Data.DataModule.ParamByName(Params, "Datos", UsuarioID);
-            DataModule.FillDataSet(ds, "spCatPedido", Params.ToArray());
-            DataTable dt = new DataTable();
-            dt = ds.Tables["spCatPedido"];
-            dt.Columns.Add(new DataColumn("Imagen", typeof(byte[])));
-            dt.Columns.Add(new DataColumn("ImagenEstatus", typeof(byte[])));
-
-            IEnumerable<DataRow> query = from dts in dt.AsEnumerable() select dts;
-            ImageConverter _imageConverter = new ImageConverter();
-            byte[] xByte;
-            System.Drawing.Image img;
-          
-
-            foreach (DataRow dr in query)
+            try
             {
-                switch (dr.Field<int>("StatusID"))
+                Params.Clear();
+                Data.DataModule.ParamByName(Params, "Datos", UsuarioID);
+                DataModule.FillDataSet(ds, "spCatPedido", Params.ToArray());
+                DataTable dt = new DataTable();
+                dt = ds.Tables["spCatPedido"];
+                dt.Columns.Add(new DataColumn("Imagen", typeof(byte[])));
+                dt.Columns.Add(new DataColumn("ImagenEstatus", typeof(byte[])));
+
+                IEnumerable<DataRow> query = from dts in dt.AsEnumerable() select dts;
+                ImageConverter _imageConverter = new ImageConverter();
+                byte[] xByte;
+                System.Drawing.Image img;
+
+
+                foreach (DataRow dr in query)
                 {
-                    case 1://Nuevo
-                        img= System.Drawing.Image.FromFile(@"C:\Users\RedPacifico\Desktop\RedCoSite\RedCoSite\RedCoSite\Image\deliveryGrid.png");
-                        xByte = (byte[])_imageConverter.ConvertTo(img, typeof(byte[]));
-                        dr["Imagen"] = xByte;
+                    switch (dr.Field<int>("StatusID"))
+                    {
+                        case 1://Nuevo
+                            img = System.Drawing.Image.FromFile(@"C:\Users\RedPacifico\Desktop\RedCoSite\RedCoSite\RedCoSite\Image\deliveryGrid.png");
+                            xByte = (byte[])_imageConverter.ConvertTo(img, typeof(byte[]));
+                            dr["Imagen"] = xByte;
 
-                        img = System.Drawing.Image.FromFile(@"C:\Users\RedPacifico\Desktop\RedCoSite\RedCoSite\RedCoSite\Image\add.png");
-                        xByte = (byte[])_imageConverter.ConvertTo(img, typeof(byte[]));
-                        dr["ImagenEstatus"] = xByte;
+                            img = System.Drawing.Image.FromFile(@"C:\Users\RedPacifico\Desktop\RedCoSite\RedCoSite\RedCoSite\Image\add.png");
+                            xByte = (byte[])_imageConverter.ConvertTo(img, typeof(byte[]));
+                            dr["ImagenEstatus"] = xByte;
 
-                        break;
-                    case 6://Modificado
-                        img = System.Drawing.Image.FromFile(@"C:\Users\RedPacifico\Desktop\RedCoSite\RedCoSite\RedCoSite\Image\deliveryGrid-location.png");
-                        xByte = (byte[])_imageConverter.ConvertTo(img, typeof(byte[]));
-                        dr["Imagen"] = xByte;
+                            break;
+                        case 3://Modificado
+                            img = System.Drawing.Image.FromFile(@"C:\Users\RedPacifico\Desktop\RedCoSite\RedCoSite\RedCoSite\Image\deliveryGrid-location.png");
+                            xByte = (byte[])_imageConverter.ConvertTo(img, typeof(byte[]));
+                            dr["Imagen"] = xByte;
 
-                        img = System.Drawing.Image.FromFile(@"C:\Users\RedPacifico\Desktop\RedCoSite\RedCoSite\RedCoSite\Image\red.png");
-                        xByte = (byte[])_imageConverter.ConvertTo(img, typeof(byte[]));
-                        dr["ImagenEstatus"] = xByte;
+                            img = System.Drawing.Image.FromFile(@"C:\Users\RedPacifico\Desktop\RedCoSite\RedCoSite\RedCoSite\Image\red.png");
+                            xByte = (byte[])_imageConverter.ConvertTo(img, typeof(byte[]));
+                            dr["ImagenEstatus"] = xByte;
 
-                        break;
-                    case 7://Modificado
-                        img = System.Drawing.Image.FromFile(@"C:\Users\RedPacifico\Desktop\RedCoSite\RedCoSite\RedCoSite\Image\deliveryGrid-location.png");
-                        xByte = (byte[])_imageConverter.ConvertTo(img, typeof(byte[]));
-                        //dr.Field<byte[]>("Imagen").SetValue(xByte, 0);
-                        dr["Imagen"] = xByte;
+                            break;
+                        case 5://Modificado
+                            img = System.Drawing.Image.FromFile(@"C:\Users\RedPacifico\Desktop\RedCoSite\RedCoSite\RedCoSite\Image\deliveryGrid-location.png");
+                            xByte = (byte[])_imageConverter.ConvertTo(img, typeof(byte[]));
+                            //dr.Field<byte[]>("Imagen").SetValue(xByte, 0);
+                            dr["Imagen"] = xByte;
 
-                        img = System.Drawing.Image.FromFile(@"C:\Users\RedPacifico\Desktop\RedCoSite\RedCoSite\RedCoSite\Image\red.png");
-                        xByte = (byte[])_imageConverter.ConvertTo(img, typeof(byte[]));
-                        dr["ImagenEstatus"] = xByte;
-                        break;
-                    case 8://Entregado
-                        img = System.Drawing.Image.FromFile(@"C:\Users\RedPacifico\Desktop\RedCoSite\RedCoSite\RedCoSite\Image\deliveryGrid-ok.png");
-                        xByte = (byte[])_imageConverter.ConvertTo(img, typeof(byte[]));
-                        //dr.Field<byte[]>("Imagen").SetValue(xByte, 0);
-                        dr["Imagen"] = xByte;
+                            img = System.Drawing.Image.FromFile(@"C:\Users\RedPacifico\Desktop\RedCoSite\RedCoSite\RedCoSite\Image\red.png");
+                            xByte = (byte[])_imageConverter.ConvertTo(img, typeof(byte[]));
+                            dr["ImagenEstatus"] = xByte;
+                            break;
+                        case 6://Entregado
+                            img = System.Drawing.Image.FromFile(@"C:\Users\RedPacifico\Desktop\RedCoSite\RedCoSite\RedCoSite\Image\deliveryGrid-ok.png");
+                            xByte = (byte[])_imageConverter.ConvertTo(img, typeof(byte[]));
+                            //dr.Field<byte[]>("Imagen").SetValue(xByte, 0);
+                            dr["Imagen"] = xByte;
 
-                        img = System.Drawing.Image.FromFile(@"C:\Users\RedPacifico\Desktop\RedCoSite\RedCoSite\RedCoSite\Image\ok.png");
-                        xByte = (byte[])_imageConverter.ConvertTo(img, typeof(byte[]));
-                        dr["ImagenEstatus"] = xByte;
-                        break;
-                    case 9://Cancelado
-                        img = System.Drawing.Image.FromFile(@"C:\Users\RedPacifico\Desktop\RedCoSite\RedCoSite\RedCoSite\Image\deliveryGrid-cancel.png");
-                        xByte = (byte[])_imageConverter.ConvertTo(img, typeof(byte[]));
-                        //dr.Field<byte[]>("Imagen").SetValue(xByte, 0);
-                        dr["Imagen"] = xByte;
+                            img = System.Drawing.Image.FromFile(@"C:\Users\RedPacifico\Desktop\RedCoSite\RedCoSite\RedCoSite\Image\ok.png");
+                            xByte = (byte[])_imageConverter.ConvertTo(img, typeof(byte[]));
+                            dr["ImagenEstatus"] = xByte;
+                            break;
+                        case 9://Cancelado
+                            img = System.Drawing.Image.FromFile(@"C:\Users\RedPacifico\Desktop\RedCoSite\RedCoSite\RedCoSite\Image\deliveryGrid-cancel.png");
+                            xByte = (byte[])_imageConverter.ConvertTo(img, typeof(byte[]));
+                            //dr.Field<byte[]>("Imagen").SetValue(xByte, 0);
+                            dr["Imagen"] = xByte;
 
-                        img = System.Drawing.Image.FromFile(@"C:\Users\RedPacifico\Desktop\RedCoSite\RedCoSite\RedCoSite\Image\cancel.png");
-                        xByte = (byte[])_imageConverter.ConvertTo(img, typeof(byte[]));
-                        dr["ImagenEstatus"] = xByte;
-                        break;
+                            img = System.Drawing.Image.FromFile(@"C:\Users\RedPacifico\Desktop\RedCoSite\RedCoSite\RedCoSite\Image\cancel.png");
+                            xByte = (byte[])_imageConverter.ConvertTo(img, typeof(byte[]));
+                            dr["ImagenEstatus"] = xByte;
+                            break;
+                    }
+                    //dt.Rows.Add(dr.ItemArray);
                 }
-                //dt.Rows.Add(dr.ItemArray);
+
+                grid.DataSource = dt;
+                grid.DataBind();
             }
-            
-            grid.DataSource = dt;
-            grid.DataBind();
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
         private void getSaldo(string EstacionID)
         {
-            Params.Clear();
-            Data.DataModule.ParamByName(Params, "Datos", EstacionID);
-            DataModule.FillDataSet(saldo, "spCatSaldo", Params.ToArray());
-            DataTable dt = saldo.Tables["spCatSaldo"];
-            IEnumerable<DataRow> query = from dts in dt.AsEnumerable() select dts;
-            foreach (DataRow dr in query)
+            try
             {
-             
-               lblCreditoOtorgado.Text = "$ "+ dr.Field<double>("LimiteCredito").ToString();
-                lblSaldo.Text = "$ " + dr.Field<double>("Saldo").ToString();
-                lblCreditoUtilizado.Text = "$ " + dr.Field<double>("CreditoUsado").ToString();
-            }
+                Params.Clear();
+                Data.DataModule.ParamByName(Params, "EstacionID", EstacionID);
+                DataModule.FillDataSet(saldo, "spSaldoCliente", Params.ToArray());
+                DataTable dt = saldo.Tables["spSaldoCliente"];
+                IEnumerable<DataRow> query = from dts in dt.AsEnumerable() select dts;
+                foreach (DataRow dr in query)
+                {
 
+                    lblCreditoOtorgado.Text = "$ " + dr.Field<double>("LimiteCredito").ToString();
+                    lblSaldo.Text = "$ " + dr.Field<double>("Saldo").ToString();
+                    lblCreditoUtilizado.Text = "$ " + dr.Field<double>("Disponible").ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
         protected void ASPxCalendar_DayCellInitialize(object sender, DevExpress.Web.CalendarDayCellInitializeEventArgs e)
         {

@@ -91,7 +91,6 @@ namespace RedCoSite
                     pedido.Periodo = DateTime.Today.Month;
                     pedido.Dia = DateTime.Today.Day;
                     pedido.Folio = 0;
-                    pedido.Status = true;
                     pedido.StatusID = 1;
                     PedidoID = DataModule.DataService.GuardaPedido(pedido);
                     if (PedidoID != -1)
@@ -159,7 +158,7 @@ namespace RedCoSite
             List<utileriasComun.FillCombos> listacombo = new List<utileriasComun.FillCombos>();
             utileriasComun.FillCombos combo = new utileriasComun.FillCombos();
 
-            listacombo = combo.FillListCombo(fillComboDataset(catProductos, "spCatProducto"), "ProductoID", "Descripcion");
+            listacombo = combo.FillListCombo(fillComboDataset(catProductos, "spCatProductos"), "ProductoID", "Descripcion");
             cmbProducto.DataSource = listacombo;
             cmbProducto.ValueField = "ID";
             cmbProducto.TextField = "Nombre";

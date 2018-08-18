@@ -304,19 +304,19 @@ namespace RedCoSite.DataSets {
             
             private global::System.Data.DataColumn columnDescuento;
             
-            private global::System.Data.DataColumn columnStatus;
+            private global::System.Data.DataColumn columnStatusID;
             
             private global::System.Data.DataColumn columnObservacion;
             
             private global::System.Data.DataColumn columnEstacionID;
             
-            private global::System.Data.DataColumn columnConfiguracionID;
-            
-            private global::System.Data.DataColumn columnUsuarioID;
-            
             private global::System.Data.DataColumn columnestacionnombre;
             
-            private global::System.Data.DataColumn columnStatusID;
+            private global::System.Data.DataColumn columnConfiguracionID;
+            
+            private global::System.Data.DataColumn columnconfiguracionnombre;
+            
+            private global::System.Data.DataColumn columnUsuarioID;
             
             private global::System.Data.DataColumn columnstatusnombre;
             
@@ -463,9 +463,9 @@ namespace RedCoSite.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn StatusColumn {
+            public global::System.Data.DataColumn StatusIDColumn {
                 get {
-                    return this.columnStatus;
+                    return this.columnStatusID;
                 }
             }
             
@@ -487,22 +487,6 @@ namespace RedCoSite.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn ConfiguracionIDColumn {
-                get {
-                    return this.columnConfiguracionID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn UsuarioIDColumn {
-                get {
-                    return this.columnUsuarioID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public global::System.Data.DataColumn estacionnombreColumn {
                 get {
                     return this.columnestacionnombre;
@@ -511,9 +495,25 @@ namespace RedCoSite.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn StatusIDColumn {
+            public global::System.Data.DataColumn ConfiguracionIDColumn {
                 get {
-                    return this.columnStatusID;
+                    return this.columnConfiguracionID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn configuracionnombreColumn {
+                get {
+                    return this.columnconfiguracionnombre;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn UsuarioIDColumn {
+                get {
+                    return this.columnUsuarioID;
                 }
             }
             
@@ -579,6 +579,7 @@ namespace RedCoSite.DataSets {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public spCatPedidoRow AddspCatPedidoRow(
+                        int PedidoID, 
                         string Serie, 
                         int Folio, 
                         System.DateTime Fecha, 
@@ -591,19 +592,19 @@ namespace RedCoSite.DataSets {
                         double IEPS, 
                         double Total, 
                         double Descuento, 
-                        bool Status, 
+                        int StatusID, 
                         string Observacion, 
                         int EstacionID, 
-                        int ConfiguracionID, 
-                        int UsuarioID, 
                         string estacionnombre, 
-                        int StatusID, 
+                        int ConfiguracionID, 
+                        string configuracionnombre, 
+                        int UsuarioID, 
                         string statusnombre, 
                         int ProductoID, 
                         string ProductoNombre) {
                 spCatPedidoRow rowspCatPedidoRow = ((spCatPedidoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        null,
+                        PedidoID,
                         Serie,
                         Folio,
                         Fecha,
@@ -616,13 +617,13 @@ namespace RedCoSite.DataSets {
                         IEPS,
                         Total,
                         Descuento,
-                        Status,
+                        StatusID,
                         Observacion,
                         EstacionID,
-                        ConfiguracionID,
-                        UsuarioID,
                         estacionnombre,
-                        StatusID,
+                        ConfiguracionID,
+                        configuracionnombre,
+                        UsuarioID,
                         statusnombre,
                         ProductoID,
                         ProductoNombre};
@@ -661,13 +662,13 @@ namespace RedCoSite.DataSets {
                 this.columnIEPS = base.Columns["IEPS"];
                 this.columnTotal = base.Columns["Total"];
                 this.columnDescuento = base.Columns["Descuento"];
-                this.columnStatus = base.Columns["Status"];
+                this.columnStatusID = base.Columns["StatusID"];
                 this.columnObservacion = base.Columns["Observacion"];
                 this.columnEstacionID = base.Columns["EstacionID"];
-                this.columnConfiguracionID = base.Columns["ConfiguracionID"];
-                this.columnUsuarioID = base.Columns["UsuarioID"];
                 this.columnestacionnombre = base.Columns["estacionnombre"];
-                this.columnStatusID = base.Columns["StatusID"];
+                this.columnConfiguracionID = base.Columns["ConfiguracionID"];
+                this.columnconfiguracionnombre = base.Columns["configuracionnombre"];
+                this.columnUsuarioID = base.Columns["UsuarioID"];
                 this.columnstatusnombre = base.Columns["statusnombre"];
                 this.columnProductoID = base.Columns["ProductoID"];
                 this.columnProductoNombre = base.Columns["ProductoNombre"];
@@ -702,41 +703,36 @@ namespace RedCoSite.DataSets {
                 base.Columns.Add(this.columnTotal);
                 this.columnDescuento = new global::System.Data.DataColumn("Descuento", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDescuento);
-                this.columnStatus = new global::System.Data.DataColumn("Status", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnStatus);
+                this.columnStatusID = new global::System.Data.DataColumn("StatusID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnStatusID);
                 this.columnObservacion = new global::System.Data.DataColumn("Observacion", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnObservacion);
                 this.columnEstacionID = new global::System.Data.DataColumn("EstacionID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEstacionID);
-                this.columnConfiguracionID = new global::System.Data.DataColumn("ConfiguracionID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnConfiguracionID);
-                this.columnUsuarioID = new global::System.Data.DataColumn("UsuarioID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnUsuarioID);
                 this.columnestacionnombre = new global::System.Data.DataColumn("estacionnombre", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnestacionnombre);
-                this.columnStatusID = new global::System.Data.DataColumn("StatusID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnStatusID);
+                this.columnConfiguracionID = new global::System.Data.DataColumn("ConfiguracionID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnConfiguracionID);
+                this.columnconfiguracionnombre = new global::System.Data.DataColumn("configuracionnombre", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnconfiguracionnombre);
+                this.columnUsuarioID = new global::System.Data.DataColumn("UsuarioID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUsuarioID);
                 this.columnstatusnombre = new global::System.Data.DataColumn("statusnombre", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnstatusnombre);
                 this.columnProductoID = new global::System.Data.DataColumn("ProductoID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnProductoID);
                 this.columnProductoNombre = new global::System.Data.DataColumn("ProductoNombre", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnProductoNombre);
-                this.columnPedidoID.AutoIncrement = true;
-                this.columnPedidoID.AutoIncrementSeed = -1;
-                this.columnPedidoID.AutoIncrementStep = -1;
                 this.columnPedidoID.AllowDBNull = false;
                 this.columnSerie.MaxLength = 10;
                 this.columnObservacion.MaxLength = 250;
+                this.columnEstacionID.AllowDBNull = false;
+                this.columnestacionnombre.MaxLength = 150;
                 this.columnConfiguracionID.AllowDBNull = false;
-                this.columnestacionnombre.Caption = "NewField";
-                this.columnestacionnombre.MaxLength = 65536;
-                this.columnStatusID.Caption = "NewField";
-                this.columnstatusnombre.Caption = "NewField";
-                this.columnstatusnombre.MaxLength = 65536;
-                this.columnProductoID.Caption = "NewField";
-                this.columnProductoNombre.Caption = "NewField";
-                this.columnProductoNombre.MaxLength = 100;
+                this.columnconfiguracionnombre.MaxLength = 250;
+                this.columnstatusnombre.MaxLength = 50;
+                this.columnProductoID.AllowDBNull = false;
+                this.columnProductoNombre.MaxLength = 250;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1082,17 +1078,17 @@ namespace RedCoSite.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool Status {
+            public int StatusID {
                 get {
                     try {
-                        return ((bool)(this[this.tablespCatPedido.StatusColumn]));
+                        return ((int)(this[this.tablespCatPedido.StatusIDColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Status\' in table \'spCatPedido\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'StatusID\' in table \'spCatPedido\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablespCatPedido.StatusColumn] = value;
+                    this[this.tablespCatPedido.StatusIDColumn] = value;
                 }
             }
             
@@ -1116,42 +1112,10 @@ namespace RedCoSite.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public int EstacionID {
                 get {
-                    try {
-                        return ((int)(this[this.tablespCatPedido.EstacionIDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'EstacionID\' in table \'spCatPedido\' is DBNull.", e);
-                    }
+                    return ((int)(this[this.tablespCatPedido.EstacionIDColumn]));
                 }
                 set {
                     this[this.tablespCatPedido.EstacionIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int ConfiguracionID {
-                get {
-                    return ((int)(this[this.tablespCatPedido.ConfiguracionIDColumn]));
-                }
-                set {
-                    this[this.tablespCatPedido.ConfiguracionIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int UsuarioID {
-                get {
-                    try {
-                        return ((int)(this[this.tablespCatPedido.UsuarioIDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'UsuarioID\' in table \'spCatPedido\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablespCatPedido.UsuarioIDColumn] = value;
                 }
             }
             
@@ -1173,17 +1137,44 @@ namespace RedCoSite.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int StatusID {
+            public int ConfiguracionID {
+                get {
+                    return ((int)(this[this.tablespCatPedido.ConfiguracionIDColumn]));
+                }
+                set {
+                    this[this.tablespCatPedido.ConfiguracionIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string configuracionnombre {
                 get {
                     try {
-                        return ((int)(this[this.tablespCatPedido.StatusIDColumn]));
+                        return ((string)(this[this.tablespCatPedido.configuracionnombreColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'StatusID\' in table \'spCatPedido\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'configuracionnombre\' in table \'spCatPedido\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablespCatPedido.StatusIDColumn] = value;
+                    this[this.tablespCatPedido.configuracionnombreColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int UsuarioID {
+                get {
+                    try {
+                        return ((int)(this[this.tablespCatPedido.UsuarioIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'UsuarioID\' in table \'spCatPedido\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablespCatPedido.UsuarioIDColumn] = value;
                 }
             }
             
@@ -1207,12 +1198,7 @@ namespace RedCoSite.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public int ProductoID {
                 get {
-                    try {
-                        return ((int)(this[this.tablespCatPedido.ProductoIDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ProductoID\' in table \'spCatPedido\' is DBNull.", e);
-                    }
+                    return ((int)(this[this.tablespCatPedido.ProductoIDColumn]));
                 }
                 set {
                     this[this.tablespCatPedido.ProductoIDColumn] = value;
@@ -1381,14 +1367,14 @@ namespace RedCoSite.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsStatusNull() {
-                return this.IsNull(this.tablespCatPedido.StatusColumn);
+            public bool IsStatusIDNull() {
+                return this.IsNull(this.tablespCatPedido.StatusIDColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetStatusNull() {
-                this[this.tablespCatPedido.StatusColumn] = global::System.Convert.DBNull;
+            public void SetStatusIDNull() {
+                this[this.tablespCatPedido.StatusIDColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1405,14 +1391,26 @@ namespace RedCoSite.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsEstacionIDNull() {
-                return this.IsNull(this.tablespCatPedido.EstacionIDColumn);
+            public bool IsestacionnombreNull() {
+                return this.IsNull(this.tablespCatPedido.estacionnombreColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetEstacionIDNull() {
-                this[this.tablespCatPedido.EstacionIDColumn] = global::System.Convert.DBNull;
+            public void SetestacionnombreNull() {
+                this[this.tablespCatPedido.estacionnombreColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsconfiguracionnombreNull() {
+                return this.IsNull(this.tablespCatPedido.configuracionnombreColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetconfiguracionnombreNull() {
+                this[this.tablespCatPedido.configuracionnombreColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1429,30 +1427,6 @@ namespace RedCoSite.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsestacionnombreNull() {
-                return this.IsNull(this.tablespCatPedido.estacionnombreColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetestacionnombreNull() {
-                this[this.tablespCatPedido.estacionnombreColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsStatusIDNull() {
-                return this.IsNull(this.tablespCatPedido.StatusIDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetStatusIDNull() {
-                this[this.tablespCatPedido.StatusIDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsstatusnombreNull() {
                 return this.IsNull(this.tablespCatPedido.statusnombreColumn);
             }
@@ -1461,18 +1435,6 @@ namespace RedCoSite.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetstatusnombreNull() {
                 this[this.tablespCatPedido.statusnombreColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsProductoIDNull() {
-                return this.IsNull(this.tablespCatPedido.ProductoIDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetProductoIDNull() {
-                this[this.tablespCatPedido.ProductoIDColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

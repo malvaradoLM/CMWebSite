@@ -24,7 +24,7 @@ namespace RedCoSite.DataSets {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class spCatSaldoDS : global::System.Data.DataSet {
         
-        private spCatSaldoDataTable tablespCatSaldo;
+        private spSaldoClienteDataTable tablespSaldoCliente;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -54,8 +54,8 @@ namespace RedCoSite.DataSets {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["spCatSaldo"] != null)) {
-                    base.Tables.Add(new spCatSaldoDataTable(ds.Tables["spCatSaldo"]));
+                if ((ds.Tables["spSaldoCliente"] != null)) {
+                    base.Tables.Add(new spSaldoClienteDataTable(ds.Tables["spSaldoCliente"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace RedCoSite.DataSets {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public spCatSaldoDataTable spCatSaldo {
+        public spSaldoClienteDataTable spSaldoCliente {
             get {
-                return this.tablespCatSaldo;
+                return this.tablespSaldoCliente;
             }
         }
         
@@ -152,8 +152,8 @@ namespace RedCoSite.DataSets {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["spCatSaldo"] != null)) {
-                    base.Tables.Add(new spCatSaldoDataTable(ds.Tables["spCatSaldo"]));
+                if ((ds.Tables["spSaldoCliente"] != null)) {
+                    base.Tables.Add(new spSaldoClienteDataTable(ds.Tables["spSaldoCliente"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace RedCoSite.DataSets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tablespCatSaldo = ((spCatSaldoDataTable)(base.Tables["spCatSaldo"]));
+            this.tablespSaldoCliente = ((spSaldoClienteDataTable)(base.Tables["spSaldoCliente"]));
             if ((initTable == true)) {
-                if ((this.tablespCatSaldo != null)) {
-                    this.tablespCatSaldo.InitVars();
+                if ((this.tablespSaldoCliente != null)) {
+                    this.tablespSaldoCliente.InitVars();
                 }
             }
         }
@@ -203,13 +203,13 @@ namespace RedCoSite.DataSets {
             this.Prefix = "";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tablespCatSaldo = new spCatSaldoDataTable();
-            base.Tables.Add(this.tablespCatSaldo);
+            this.tablespSaldoCliente = new spSaldoClienteDataTable();
+            base.Tables.Add(this.tablespSaldoCliente);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private bool ShouldSerializespCatSaldo() {
+        private bool ShouldSerializespSaldoCliente() {
             return false;
         }
         
@@ -269,27 +269,27 @@ namespace RedCoSite.DataSets {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public delegate void spCatSaldoRowChangeEventHandler(object sender, spCatSaldoRowChangeEvent e);
+        public delegate void spSaldoClienteRowChangeEventHandler(object sender, spSaldoClienteRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class spCatSaldoDataTable : global::System.Data.TypedTableBase<spCatSaldoRow> {
+        public partial class spSaldoClienteDataTable : global::System.Data.TypedTableBase<spSaldoClienteRow> {
             
             private global::System.Data.DataColumn columnEstacionID;
             
             private global::System.Data.DataColumn columnLimiteCredito;
             
-            private global::System.Data.DataColumn columnCreditoUsado;
-            
             private global::System.Data.DataColumn columnSaldo;
+            
+            private global::System.Data.DataColumn columnDisponible;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public spCatSaldoDataTable() {
-                this.TableName = "spCatSaldo";
+            public spSaldoClienteDataTable() {
+                this.TableName = "spSaldoCliente";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -297,7 +297,7 @@ namespace RedCoSite.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal spCatSaldoDataTable(global::System.Data.DataTable table) {
+            internal spSaldoClienteDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -314,7 +314,7 @@ namespace RedCoSite.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected spCatSaldoDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected spSaldoClienteDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -337,17 +337,17 @@ namespace RedCoSite.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn CreditoUsadoColumn {
+            public global::System.Data.DataColumn SaldoColumn {
                 get {
-                    return this.columnCreditoUsado;
+                    return this.columnSaldo;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn SaldoColumn {
+            public global::System.Data.DataColumn DisponibleColumn {
                 get {
-                    return this.columnSaldo;
+                    return this.columnDisponible;
                 }
             }
             
@@ -362,48 +362,55 @@ namespace RedCoSite.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public spCatSaldoRow this[int index] {
+            public spSaldoClienteRow this[int index] {
                 get {
-                    return ((spCatSaldoRow)(this.Rows[index]));
+                    return ((spSaldoClienteRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event spCatSaldoRowChangeEventHandler spCatSaldoRowChanging;
+            public event spSaldoClienteRowChangeEventHandler spSaldoClienteRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event spCatSaldoRowChangeEventHandler spCatSaldoRowChanged;
+            public event spSaldoClienteRowChangeEventHandler spSaldoClienteRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event spCatSaldoRowChangeEventHandler spCatSaldoRowDeleting;
+            public event spSaldoClienteRowChangeEventHandler spSaldoClienteRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event spCatSaldoRowChangeEventHandler spCatSaldoRowDeleted;
+            public event spSaldoClienteRowChangeEventHandler spSaldoClienteRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void AddspCatSaldoRow(spCatSaldoRow row) {
+            public void AddspSaldoClienteRow(spSaldoClienteRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public spCatSaldoRow AddspCatSaldoRow(int EstacionID, double LimiteCredito, double CreditoUsado, double Saldo) {
-                spCatSaldoRow rowspCatSaldoRow = ((spCatSaldoRow)(this.NewRow()));
+            public spSaldoClienteRow AddspSaldoClienteRow(int EstacionID, double LimiteCredito, double Saldo, double Disponible) {
+                spSaldoClienteRow rowspSaldoClienteRow = ((spSaldoClienteRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         EstacionID,
                         LimiteCredito,
-                        CreditoUsado,
-                        Saldo};
-                rowspCatSaldoRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowspCatSaldoRow);
-                return rowspCatSaldoRow;
+                        Saldo,
+                        Disponible};
+                rowspSaldoClienteRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowspSaldoClienteRow);
+                return rowspSaldoClienteRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public spSaldoClienteRow FindByEstacionID(int EstacionID) {
+                return ((spSaldoClienteRow)(this.Rows.Find(new object[] {
+                            EstacionID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                spCatSaldoDataTable cln = ((spCatSaldoDataTable)(base.Clone()));
+                spSaldoClienteDataTable cln = ((spSaldoClienteDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -411,7 +418,7 @@ namespace RedCoSite.DataSets {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new spCatSaldoDataTable();
+                return new spSaldoClienteDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -419,8 +426,8 @@ namespace RedCoSite.DataSets {
             internal void InitVars() {
                 this.columnEstacionID = base.Columns["EstacionID"];
                 this.columnLimiteCredito = base.Columns["LimiteCredito"];
-                this.columnCreditoUsado = base.Columns["CreditoUsado"];
                 this.columnSaldo = base.Columns["Saldo"];
+                this.columnDisponible = base.Columns["Disponible"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -430,36 +437,40 @@ namespace RedCoSite.DataSets {
                 base.Columns.Add(this.columnEstacionID);
                 this.columnLimiteCredito = new global::System.Data.DataColumn("LimiteCredito", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLimiteCredito);
-                this.columnCreditoUsado = new global::System.Data.DataColumn("CreditoUsado", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCreditoUsado);
                 this.columnSaldo = new global::System.Data.DataColumn("Saldo", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSaldo);
+                this.columnDisponible = new global::System.Data.DataColumn("Disponible", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDisponible);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("PK_spSaldoCliente", new global::System.Data.DataColumn[] {
+                                this.columnEstacionID}, true));
+                this.columnEstacionID.AllowDBNull = false;
+                this.columnEstacionID.Unique = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public spCatSaldoRow NewspCatSaldoRow() {
-                return ((spCatSaldoRow)(this.NewRow()));
+            public spSaldoClienteRow NewspSaldoClienteRow() {
+                return ((spSaldoClienteRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new spCatSaldoRow(builder);
+                return new spSaldoClienteRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(spCatSaldoRow);
+                return typeof(spSaldoClienteRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.spCatSaldoRowChanged != null)) {
-                    this.spCatSaldoRowChanged(this, new spCatSaldoRowChangeEvent(((spCatSaldoRow)(e.Row)), e.Action));
+                if ((this.spSaldoClienteRowChanged != null)) {
+                    this.spSaldoClienteRowChanged(this, new spSaldoClienteRowChangeEvent(((spSaldoClienteRow)(e.Row)), e.Action));
                 }
             }
             
@@ -467,8 +478,8 @@ namespace RedCoSite.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.spCatSaldoRowChanging != null)) {
-                    this.spCatSaldoRowChanging(this, new spCatSaldoRowChangeEvent(((spCatSaldoRow)(e.Row)), e.Action));
+                if ((this.spSaldoClienteRowChanging != null)) {
+                    this.spSaldoClienteRowChanging(this, new spSaldoClienteRowChangeEvent(((spSaldoClienteRow)(e.Row)), e.Action));
                 }
             }
             
@@ -476,8 +487,8 @@ namespace RedCoSite.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.spCatSaldoRowDeleted != null)) {
-                    this.spCatSaldoRowDeleted(this, new spCatSaldoRowChangeEvent(((spCatSaldoRow)(e.Row)), e.Action));
+                if ((this.spSaldoClienteRowDeleted != null)) {
+                    this.spSaldoClienteRowDeleted(this, new spSaldoClienteRowChangeEvent(((spSaldoClienteRow)(e.Row)), e.Action));
                 }
             }
             
@@ -485,14 +496,14 @@ namespace RedCoSite.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.spCatSaldoRowDeleting != null)) {
-                    this.spCatSaldoRowDeleting(this, new spCatSaldoRowChangeEvent(((spCatSaldoRow)(e.Row)), e.Action));
+                if ((this.spSaldoClienteRowDeleting != null)) {
+                    this.spSaldoClienteRowDeleting(this, new spSaldoClienteRowChangeEvent(((spSaldoClienteRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void RemovespCatSaldoRow(spCatSaldoRow row) {
+            public void RemovespSaldoClienteRow(spSaldoClienteRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -519,7 +530,7 @@ namespace RedCoSite.DataSets {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "spCatSaldoDataTable";
+                attribute2.FixedValue = "spSaldoClienteDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -563,30 +574,25 @@ namespace RedCoSite.DataSets {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class spCatSaldoRow : global::System.Data.DataRow {
+        public partial class spSaldoClienteRow : global::System.Data.DataRow {
             
-            private spCatSaldoDataTable tablespCatSaldo;
+            private spSaldoClienteDataTable tablespSaldoCliente;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal spCatSaldoRow(global::System.Data.DataRowBuilder rb) : 
+            internal spSaldoClienteRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tablespCatSaldo = ((spCatSaldoDataTable)(this.Table));
+                this.tablespSaldoCliente = ((spSaldoClienteDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public int EstacionID {
                 get {
-                    try {
-                        return ((int)(this[this.tablespCatSaldo.EstacionIDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'EstacionID\' in table \'spCatSaldo\' is DBNull.", e);
-                    }
+                    return ((int)(this[this.tablespSaldoCliente.EstacionIDColumn]));
                 }
                 set {
-                    this[this.tablespCatSaldo.EstacionIDColumn] = value;
+                    this[this.tablespSaldoCliente.EstacionIDColumn] = value;
                 }
             }
             
@@ -595,30 +601,14 @@ namespace RedCoSite.DataSets {
             public double LimiteCredito {
                 get {
                     try {
-                        return ((double)(this[this.tablespCatSaldo.LimiteCreditoColumn]));
+                        return ((double)(this[this.tablespSaldoCliente.LimiteCreditoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'LimiteCredito\' in table \'spCatSaldo\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'LimiteCredito\' in table \'spSaldoCliente\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablespCatSaldo.LimiteCreditoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public double CreditoUsado {
-                get {
-                    try {
-                        return ((double)(this[this.tablespCatSaldo.CreditoUsadoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CreditoUsado\' in table \'spCatSaldo\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablespCatSaldo.CreditoUsadoColumn] = value;
+                    this[this.tablespSaldoCliente.LimiteCreditoColumn] = value;
                 }
             }
             
@@ -627,63 +617,67 @@ namespace RedCoSite.DataSets {
             public double Saldo {
                 get {
                     try {
-                        return ((double)(this[this.tablespCatSaldo.SaldoColumn]));
+                        return ((double)(this[this.tablespSaldoCliente.SaldoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Saldo\' in table \'spCatSaldo\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Saldo\' in table \'spSaldoCliente\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablespCatSaldo.SaldoColumn] = value;
+                    this[this.tablespSaldoCliente.SaldoColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsEstacionIDNull() {
-                return this.IsNull(this.tablespCatSaldo.EstacionIDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetEstacionIDNull() {
-                this[this.tablespCatSaldo.EstacionIDColumn] = global::System.Convert.DBNull;
+            public double Disponible {
+                get {
+                    try {
+                        return ((double)(this[this.tablespSaldoCliente.DisponibleColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Disponible\' in table \'spSaldoCliente\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablespSaldoCliente.DisponibleColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsLimiteCreditoNull() {
-                return this.IsNull(this.tablespCatSaldo.LimiteCreditoColumn);
+                return this.IsNull(this.tablespSaldoCliente.LimiteCreditoColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetLimiteCreditoNull() {
-                this[this.tablespCatSaldo.LimiteCreditoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsCreditoUsadoNull() {
-                return this.IsNull(this.tablespCatSaldo.CreditoUsadoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetCreditoUsadoNull() {
-                this[this.tablespCatSaldo.CreditoUsadoColumn] = global::System.Convert.DBNull;
+                this[this.tablespSaldoCliente.LimiteCreditoColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsSaldoNull() {
-                return this.IsNull(this.tablespCatSaldo.SaldoColumn);
+                return this.IsNull(this.tablespSaldoCliente.SaldoColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetSaldoNull() {
-                this[this.tablespCatSaldo.SaldoColumn] = global::System.Convert.DBNull;
+                this[this.tablespSaldoCliente.SaldoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsDisponibleNull() {
+                return this.IsNull(this.tablespSaldoCliente.DisponibleColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetDisponibleNull() {
+                this[this.tablespSaldoCliente.DisponibleColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -691,22 +685,22 @@ namespace RedCoSite.DataSets {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public class spCatSaldoRowChangeEvent : global::System.EventArgs {
+        public class spSaldoClienteRowChangeEvent : global::System.EventArgs {
             
-            private spCatSaldoRow eventRow;
+            private spSaldoClienteRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public spCatSaldoRowChangeEvent(spCatSaldoRow row, global::System.Data.DataRowAction action) {
+            public spSaldoClienteRowChangeEvent(spSaldoClienteRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public spCatSaldoRow Row {
+            public spSaldoClienteRow Row {
                 get {
                     return this.eventRow;
                 }

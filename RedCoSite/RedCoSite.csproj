@@ -149,6 +149,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="ClientePage.aspx" />
     <Content Include="ConsultaPedidoPage.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
@@ -257,6 +258,13 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="ClientePage.aspx.cs">
+      <DependentUpon>ClientePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClientePage.aspx.designer.cs">
+      <DependentUpon>ClientePage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ConsultaPedidoPage.aspx.cs">
       <DependentUpon>ConsultaPedidoPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

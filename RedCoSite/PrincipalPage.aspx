@@ -225,7 +225,7 @@
             </PanelCollection>
            </dx:ASPxRoundPanel>
   <br />
-     <dx:ASPxRoundPanel ID="ASPxRoundPanel1" ClientInstanceName="roundPanel" HeaderText="CALENDARIO DE PEDIDOS" runat="server" Width="100%"  AllowCollapsingByHeaderClick="True" Theme="ios" View="Standard" Font-Size="25px">
+     <dx:ASPxRoundPanel ID="ASPxRoundPanel1" ClientInstanceName="roundPanel" HeaderText="CALENDARIO DE PEDIDOS" runat="server" Width="100%"  AllowCollapsingByHeaderClick="True" Theme="ios" View="Standard" Font-Size="25px" ShowCollapseButton="true">
         <PanelCollection>
             <dx:PanelContent>
     <div class="row">
