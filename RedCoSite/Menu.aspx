@@ -23,7 +23,7 @@
     </a>
             </td>
             <td>
-                <a href="#" class="btn btn-primary btn-lg btncustom">
+                <a href="ContactoPage.aspx" class="btn btn-primary btn-lg btncustom">
       <%--<span class="glyphicon glyphicon-lock"></span>--%>
                     <img src="Image/book-open.png" runat="server" /><h2>CONTACTOS </h2>
     </a>
