@@ -26,28 +26,46 @@
                     <div class="form-group">
                         <label for="description" class="col-sm-3 control-label">Estación:</label>
                         <div class="col-sm-9">
-                            <dx:ASPxComboBox ID="cmbEstacion" runat="server" ValueType="System.String" AutoPostBack="false" ></dx:ASPxComboBox>                
+                            <dx:ASPxComboBox ID="cmbEstacion" runat="server" ValueType="System.String" AutoPostBack="false" Width="100%" ></dx:ASPxComboBox>                
                         </div>
                     </div> 
                     <div class="form-group">
                         <label for="concept" class="col-sm-3 control-label">Fecha Programada de envio:</label>
                         <div class="col-sm-9">
-                            <dx:ASPxDateEdit ID="dtFechaCreacion" runat="server"></dx:ASPxDateEdit>
+                            <dx:ASPxDateEdit ID="dtFechaCreacion" runat="server" Width="100%"></dx:ASPxDateEdit>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="description" class="col-sm-3 control-label">Producto:</label>
                         <div class="col-sm-9">
-                            <dx:ASPxComboBox ID="cmbProducto" runat="server" ValueType="System.String" AutoPostBack="false" ></dx:ASPxComboBox>                
+                            <dx:ASPxComboBox ID="cmbProducto" runat="server" ValueType="System.String" AutoPostBack="false" Width="100%" ></dx:ASPxComboBox>                
                         </div>
                     </div> 
                     <div class="form-group">
                         <label for="amount" class="col-sm-3 control-label">Volumen:</label>
                         <div class="col-sm-9">
-                            <dx:ASPxComboBox ID="cmbVolumen" runat="server" ValueType="System.String" AutoPostBack="false" ></dx:ASPxComboBox>                
+                            <dx:ASPxComboBox ID="cmbVolumen" runat="server" ValueType="System.String" AutoPostBack="false" Width="100%" ></dx:ASPxComboBox>                
                         </div>
                     </div>
-                   
+                    <div class="form-group">
+                        <label for="amount" class="col-sm-3 control-label">AutoAbasto:</label>
+                        <div class="col-sm-9">
+                            <dx:ASPxCheckBox ID="ASPxChkAutoAbasto" runat="server"  AutoPostBack="true" OnCheckedChanged="ASPxChkAutoAbasto_CheckedChanged"></dx:ASPxCheckBox>                
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        
+                        <dx:ASPxLabel ID="lbltransportista" runat="server" CssClass="col-sm-3 control-label" Text="Transportista:"></dx:ASPxLabel>
+                        <div class="col-sm-9">
+                            <dx:ASPxComboBox ID="cmbTransportista" runat="server" ValueType="System.String" AutoPostBack="false" Width="100%" ></dx:ASPxComboBox>                
+                        </div>
+                    </div>
+                   <div class="form-group">
+                        <dx:ASPxLabel id="lblvehiculo" runat="server" CssClass="col-sm-3 control-label" Text="Vehiculo:"></dx:ASPxLabel>
+                        <div class="col-sm-9">
+                            <dx:ASPxComboBox ID="cmbVehiculo" runat="server" ValueType="System.String" AutoPostBack="false" Width="100%" ></dx:ASPxComboBox>                
+                        </div>
+                    </div>
                     <div class="form-group">
                         <div class="col-sm-12 text-center">
                             <dx:ASPxButton ID="btnAddPedido" CssClass="btn btn-success btn-lg" OnClick="btnAddPedido_Click" runat="server" Text="AGREGAR" AutoPostBack="false" Width="100%"></dx:ASPxButton>
@@ -74,7 +92,7 @@
                             <dx:ASPxButton ID="btn" runat="server" Text="Quitar" Width="100%" Paddings-Padding="0px" AutoPostBack="False" OnClick="btn_Click" Theme="SoftOrange"></dx:ASPxButton>
                             </DataItemTemplate>
               </dx:GridViewDataTextColumn>
-              <dx:GridViewDataTextColumn FieldName="ID" ReadOnly="True" VisibleIndex="1">
+              <dx:GridViewDataTextColumn FieldName="ID" ReadOnly="True" Visible="false" VisibleIndex="1">
                          <DataItemTemplate>
                          <%#Eval("ProxyID")%>
                          </DataItemTemplate>
@@ -107,6 +125,17 @@
             <dx:GridViewDataTextColumn FieldName="Fecha Programada de envio" ReadOnly="True" VisibleIndex="7">
                         <DataItemTemplate>
                         <%#Eval("Fecha")%>
+                        </DataItemTemplate>
+                </dx:GridViewDataTextColumn> 
+                            
+                               <dx:GridViewDataCheckColumn FieldName="AutoAbasto" ReadOnly="True" VisibleIndex="8">
+                        <DataItemTemplate>
+                        <%#Eval("AutoAbasto")%>
+                        </DataItemTemplate>
+                </dx:GridViewDataCheckColumn> 
+                               <dx:GridViewDataTextColumn FieldName="VehiculoID" ReadOnly="True" VisibleIndex="9">
+                        <DataItemTemplate>
+                        <%#Eval("Vehiculo")%>
                         </DataItemTemplate>
                 </dx:GridViewDataTextColumn> 
         </Columns>

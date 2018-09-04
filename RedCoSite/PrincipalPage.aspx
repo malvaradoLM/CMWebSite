@@ -59,6 +59,21 @@
         }
     </style>
 <div class="content">   
+    
+       <dx:ASPxRoundPanel ID="ASPxRoundPanel3" ClientInstanceName="roundPanel" HeaderText="PRECIO PRODUCTOS" runat="server" Width="100%" Visible="false" ShowCollapseButton="true"  AllowCollapsingByHeaderClick="True" View="Standard" Font-Size="20px" Border-BorderColor="Transparent" Font-Bold="true">
+        <PanelCollection>
+            <dx:PanelContent> 
+                <div style="text-align:right">
+                    <dx:ASPxLabel ID="lblFecha" runat="server"></dx:ASPxLabel>
+                    <img src="Image/fuel-station.png" runat="server" /><dx:ASPxLabel ID="lbl87oct" runat="server"></dx:ASPxLabel>
+                <img src="Image/fuel-station.png" runat="server" /><dx:ASPxLabel ID="lbl92oct" runat="server"></dx:ASPxLabel>
+                <img src="Image/fuel-station.png" runat="server" /><dx:ASPxLabel ID="lbldiesel" runat="server"></dx:ASPxLabel>
+                </div>
+                
+            </dx:PanelContent>
+            </PanelCollection>
+            </dx:ASPxRoundPanel>
+    
     <div class="row">
                 <div class="col-lg-2 col-md-6">
                     <div class="panel panel" style="background-color:lightgray">
@@ -148,7 +163,7 @@
                 </div>
             </div>
      
-       <dx:ASPxRoundPanel ID="ASPxRoundPanel2" ClientInstanceName="roundPanel" HeaderText="CRÉDITO" runat="server" Width="100%" ShowCollapseButton="true"  AllowCollapsingByHeaderClick="True"  Theme="ios" View="Standard" Font-Size="25px">
+       <dx:ASPxRoundPanel ID="ASPxRoundPanel2" ClientInstanceName="roundPanel" HeaderText="CRÉDITO" runat="server" Width="100%" ShowCollapseButton="true"  AllowCollapsingByHeaderClick="True"  View="Standard" Font-Size="20px" Border-BorderColor="Transparent" Font-Bold="true">
         <PanelCollection>
             <dx:PanelContent>
     <div class="row">
@@ -167,31 +182,8 @@
 </img></img>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge"><asp:Label ID="lblCreditoOtorgado" runat="server" Text=""/></div>
+                                    <div class="huge" style="font-size:30px"><asp:Label ID="lblCreditoOtorgado" runat="server" Text="" /></div>
                                     <div><h5>Crédito Otorgado</h5></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        <div class="col-lg-4 col-md-6">
-                    <div class="panel panel-green">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">    
-                                        <img src="~/Image/money-banknotes.png" runat="server"></img>
-                                </img>
-                                        </img>
-                                </img>
-                                        </img>
-                                </img>
-                                        </img>
-                                </img>
-                                        </img>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge"><asp:Label ID="lblCreditoUtilizado" runat="server" Text=""/></div>
-                                    <div><h5>Crédito Utilizado</h5></div>
                                 </div>
                             </div>
                         </div>
@@ -213,7 +205,30 @@
                                         </img>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge"><asp:Label ID="lblSaldo" runat="server" Text=""/></div>
+                                    <div class="huge" style="font-size:30px"><asp:Label ID="lblCreditoUtilizado" runat="server" Text=""/></div>
+                                    <div><h5>Crédito Utilizado</h5></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        <div class="col-lg-4 col-md-6">
+                    <div class="panel panel-green">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">    
+                                        <img src="~/Image/money-banknotes.png" runat="server"></img>
+                                </img>
+                                        </img>
+                                </img>
+                                        </img>
+                                </img>
+                                        </img>
+                                </img>
+                                        </img>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge" style="font-size:30px"><asp:Label ID="lblSaldo" runat="server" Text=""/></div>
                                     <div><h5>Disponible</h5></div>
                                 </div>
                             </div>
@@ -225,7 +240,7 @@
             </PanelCollection>
            </dx:ASPxRoundPanel>
   <br />
-     <dx:ASPxRoundPanel ID="ASPxRoundPanel1" ClientInstanceName="roundPanel" HeaderText="CALENDARIO DE PEDIDOS" runat="server" Width="100%"  AllowCollapsingByHeaderClick="True" Theme="ios" View="Standard" Font-Size="25px" ShowCollapseButton="true">
+     <dx:ASPxRoundPanel ID="ASPxRoundPanel1" ClientInstanceName="roundPanel" HeaderText="CALENDARIO DE PEDIDOS" runat="server" Width="100%"  AllowCollapsingByHeaderClick="True" View="Standard"  ShowCollapseButton="true" Font-Size="20px" Border-BorderColor="Transparent" Font-Bold="true">
         <PanelCollection>
             <dx:PanelContent>
     <div class="row">

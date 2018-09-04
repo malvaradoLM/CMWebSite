@@ -48,10 +48,47 @@ namespace RedCoSite
                 getPedido(DataModule.Seguridad.UserID);
                 getSaldo(DataModule.Seguridad.Attributes[0].ToString());
                 getInfoTable();
+                getProductos();
                 
             }
         }
-       
+
+        private void getProductos()
+        {
+            try
+            {
+                spCatProductoDS prd = new spCatProductoDS();
+                Params.Clear();
+                Data.DataModule.ParamByName(Params, "Datos", "");
+                DataModule.FillDataSet(prd, "spCatProducto", Params.ToArray());
+                DataTable dt = new DataTable();
+                dt = prd.Tables["spCatProducto"];
+                IEnumerable<DataRow> query = from dts in dt.AsEnumerable() select dts;
+                foreach (DataRow dr in query)
+                {
+                    switch (dr.Field<int>("ProductoID"))
+                    {
+                        case 1:
+                            lbl87oct.Text ="Producto: " + dr.Field<string>("Descripcion")+ " Precio: $"+ dr.Field<double>("Precio").ToString();
+                            break;
+                        case 2:
+                            lbl92oct.Text = "Producto: " + dr.Field<string>("Descripcion") + " Precio: $" + dr.Field<double>("Precio").ToString();
+                            break;
+                        case 3:
+                            lbldiesel.Text = "Producto: " + dr.Field<string>("Descripcion") + " Precio: $" + dr.Field<double>("Precio").ToString();
+                            break;
+                    }
+
+                }
+                lblFecha.Text = "Precio de los combustibles a la fecha: " + DateTime.Today.ToString();
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+
+        }
 
         private void irnuevapagina()
         {
@@ -84,16 +121,16 @@ namespace RedCoSite
                 case 1:
                     pedidosnuevos = pedidosnuevos + 1;
                 break;
-                case 6:
+                case 3:
                     pedidosmodificado = pedidosmodificado + 1;
                 break;
-                case 7:
+                case 5:
                     pedidosmodificado = pedidosmodificado + 1;
                     break;
-                case 8:
+                case 6:
                     pedidosEntregados = pedidosEntregados + 1;
                     break;
-                case 9:
+                case 7:
                     peidosCancelados= peidosCancelados + 1;
                     break;
             }
@@ -140,7 +177,8 @@ namespace RedCoSite
                             dr["ImagenEstatus"] = xByte;
 
                             break;
-                        case 3://Modificado
+                            //2.Por Validar
+                        case 3://Procesando
                             img = System.Drawing.Image.FromFile(@"C:\Users\RedPacifico\Desktop\RedCoSite\RedCoSite\RedCoSite\Image\deliveryGrid-location.png");
                             xByte = (byte[])_imageConverter.ConvertTo(img, typeof(byte[]));
                             dr["Imagen"] = xByte;
@@ -150,7 +188,8 @@ namespace RedCoSite
                             dr["ImagenEstatus"] = xByte;
 
                             break;
-                        case 5://Modificado
+                            //4.Cargando
+                        case 5://Ruta de entrega
                             img = System.Drawing.Image.FromFile(@"C:\Users\RedPacifico\Desktop\RedCoSite\RedCoSite\RedCoSite\Image\deliveryGrid-location.png");
                             xByte = (byte[])_imageConverter.ConvertTo(img, typeof(byte[]));
                             //dr.Field<byte[]>("Imagen").SetValue(xByte, 0);
@@ -170,7 +209,7 @@ namespace RedCoSite
                             xByte = (byte[])_imageConverter.ConvertTo(img, typeof(byte[]));
                             dr["ImagenEstatus"] = xByte;
                             break;
-                        case 9://Cancelado
+                        case 7://Cancelado
                             img = System.Drawing.Image.FromFile(@"C:\Users\RedPacifico\Desktop\RedCoSite\RedCoSite\RedCoSite\Image\deliveryGrid-cancel.png");
                             xByte = (byte[])_imageConverter.ConvertTo(img, typeof(byte[]));
                             //dr.Field<byte[]>("Imagen").SetValue(xByte, 0);
@@ -198,15 +237,17 @@ namespace RedCoSite
             {
                 Params.Clear();
                 Data.DataModule.ParamByName(Params, "EstacionID", EstacionID);
-                DataModule.FillDataSet(saldo, "spSaldoCliente", Params.ToArray());
-                DataTable dt = saldo.Tables["spSaldoCliente"];
+                //DataModule.FillDataSet(saldo, "spSaldoCliente", Params.ToArray());
+                //DataTable dt = saldo.Tables["spSaldoCliente"];
+                DataModule.FillDataSet(saldo, "spSaldo", Params.ToArray());
+                DataTable dt = saldo.Tables["spSaldo"];
                 IEnumerable<DataRow> query = from dts in dt.AsEnumerable() select dts;
                 foreach (DataRow dr in query)
                 {
 
-                    lblCreditoOtorgado.Text = "$ " + dr.Field<double>("LimiteCredito").ToString();
-                    lblSaldo.Text = "$ " + dr.Field<double>("Saldo").ToString();
-                    lblCreditoUtilizado.Text = "$ " + dr.Field<double>("Disponible").ToString();
+                    lblCreditoOtorgado.Text = "$ " + string.Format("{0:n2}",dr.Field<double>("LimiteCredito"));
+                    lblSaldo.Text = "$ " + string.Format("{0:n2}", dr.Field<double>("Disponible"));
+                    lblCreditoUtilizado.Text = "$ " + string.Format("{0:n2}", dr.Field<double>("Saldo"));
                 }
             }
             catch (Exception ex)

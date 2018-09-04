@@ -149,6 +149,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="CancelacionPage.aspx" />
     <Content Include="ClientePage.aspx" />
     <Content Include="ConsultaPedidoPage.aspx" />
     <Content Include="Contact.aspx" />
@@ -161,6 +162,7 @@
     <Content Include="Css\Estilo.css" />
     <Content Include="Css\font-awesome.css" />
     <Content Include="Css\font-awesome.min.css" />
+    <Content Include="Css\MenuStyle.css" />
     <Content Include="Css\sb-admin-2.css" />
     <Content Include="Css\sb-admin-2.min.css" />
     <Content Include="favicon.ico" />
@@ -178,6 +180,7 @@
     <Content Include="Image\cancel.png" />
     <Content Include="Image\delivery-add.png" />
     <Content Include="Image\delivery-cancel.png" />
+    <Content Include="Image\delivery-cancel1.png" />
     <Content Include="Image\delivery-find.png" />
     <Content Include="Image\delivery-folder.png" />
     <Content Include="Image\delivery-location.png" />
@@ -190,10 +193,12 @@
     <Content Include="Image\deliveryGrid-ok.png" />
     <Content Include="Image\deliveryGrid.png" />
     <Content Include="Image\deliveryPedido.png" />
+    <Content Include="Image\fuel-station.png" />
     <Content Include="Image\money-banknotes.png" />
     <Content Include="Image\ok.png" />
     <Content Include="Image\order.png" />
     <Content Include="Image\people-customers.png" />
+    <Content Include="Image\Productos.png" />
     <Content Include="Image\red.png" />
     <Content Include="Image\user-profile.png" />
     <Content Include="Image\user.png" />
@@ -212,6 +217,7 @@
     <Content Include="NuevoPedidoPage.aspx" />
     <Content Include="PedidosPage.aspx" />
     <Content Include="PrincipalPage.aspx" />
+    <Content Include="Productos.aspx" />
     <Content Include="SaldoPage.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -259,6 +265,13 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="CancelacionPage.aspx.cs">
+      <DependentUpon>CancelacionPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CancelacionPage.aspx.designer.cs">
+      <DependentUpon>CancelacionPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ClientePage.aspx.cs">
       <DependentUpon>ClientePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -345,6 +358,13 @@
     <Compile Include="PrincipalPage.aspx.designer.cs">
       <DependentUpon>PrincipalPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Productos.aspx.cs">
+      <DependentUpon>Productos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Productos.aspx.designer.cs">
+      <DependentUpon>Productos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SaldoPage.aspx.cs">
       <DependentUpon>SaldoPage.aspx</DependentUpon>
@@ -397,15 +417,25 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>spCatSaldoDS.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSets\spCatRelacionUsuarioEstacionDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>spCatRelacionUsuarioEstacionDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\spPedidoDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>spPedidoDS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSets\spCatEstacionDS.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>spCatEstacionDS.xsd</DependentUpon>
     </Compile>
-    <Compile Include="DataSets\spCatRelacionUsuarioEstacionDS.Designer.cs">
+    <Compile Include="DataSets\spCatTransportistaDS.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>spCatRelacionUsuarioEstacionDS.xsd</DependentUpon>
+      <DependentUpon>spCatTransportistaDS.xsd</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
@@ -487,6 +517,28 @@
     <Content Include="DataSets\spCatSaldoDS.xss">
       <DependentUpon>spCatSaldoDS.xsd</DependentUpon>
     </Content>
+    <Content Include="DataSets\spCatRelacionUsuarioEstacionDS.xsc">
+      <DependentUpon>spCatRelacionUsuarioEstacionDS.xsd</DependentUpon>
+    </Content>
+    <None Include="DataSets\spCatRelacionUsuarioEstacionDS.xsd">
+      <Generator>MSDatasetGenerator</Generator>
+      <LastGenOutput>spCatRelacionUsuarioEstacionDS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="DataSets\spCatRelacionUsuarioEstacionDS.xss">
+      <DependentUpon>spCatRelacionUsuarioEstacionDS.xsd</DependentUpon>
+    </Content>
+    <Content Include="DataSets\spPedidoDS.xsc">
+      <DependentUpon>spPedidoDS.xsd</DependentUpon>
+    </Content>
+    <None Include="DataSets\spPedidoDS.xsd">
+      <Generator>MSDatasetGenerator</Generator>
+      <LastGenOutput>spPedidoDS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="DataSets\spPedidoDS.xss">
+      <DependentUpon>spPedidoDS.xsd</DependentUpon>
+    </Content>
     <Content Include="DataSets\spCatEstacionDS.xsc">
       <DependentUpon>spCatEstacionDS.xsd</DependentUpon>
     </Content>
@@ -498,16 +550,16 @@
     <Content Include="DataSets\spCatEstacionDS.xss">
       <DependentUpon>spCatEstacionDS.xsd</DependentUpon>
     </Content>
-    <Content Include="DataSets\spCatRelacionUsuarioEstacionDS.xsc">
-      <DependentUpon>spCatRelacionUsuarioEstacionDS.xsd</DependentUpon>
+    <Content Include="DataSets\spCatTransportistaDS.xsc">
+      <DependentUpon>spCatTransportistaDS.xsd</DependentUpon>
     </Content>
-    <None Include="DataSets\spCatRelacionUsuarioEstacionDS.xsd">
+    <None Include="DataSets\spCatTransportistaDS.xsd">
       <Generator>MSDatasetGenerator</Generator>
-      <LastGenOutput>spCatRelacionUsuarioEstacionDS.Designer.cs</LastGenOutput>
+      <LastGenOutput>spCatTransportistaDS.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <Content Include="DataSets\spCatRelacionUsuarioEstacionDS.xss">
-      <DependentUpon>spCatRelacionUsuarioEstacionDS.xsd</DependentUpon>
+    <Content Include="DataSets\spCatTransportistaDS.xss">
+      <DependentUpon>spCatTransportistaDS.xsd</DependentUpon>
     </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

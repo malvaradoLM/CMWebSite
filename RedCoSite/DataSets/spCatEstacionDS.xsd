@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <xs:schema id="spCatEstacionDS" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
   <xs:element name="spCatEstacionDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
     <xs:complexType>
@@ -29,6 +29,13 @@
                 </xs:simpleType>
               </xs:element>
               <xs:element name="Calle" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Colonia" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
@@ -71,10 +78,18 @@
                 </xs:simpleType>
               </xs:element>
               <xs:element name="Status" type="xs:boolean" minOccurs="0" />
+              <xs:element name="CodigoPostal" type="xs:int" minOccurs="0" />
               <xs:element name="Telefono" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CuentaContable" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -85,6 +100,20 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="PlazoPago" type="xs:int" minOccurs="0" />
+              <xs:element name="FechaIngreso" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="NIP" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FechaBaja" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="LimiteCredito" type="xs:double" minOccurs="0" />
+              <xs:element name="Deposito" type="xs:double" minOccurs="0" />
+              <xs:element name="CambioCredito" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="CambioCreditoAnterior" type="xs:dateTime" minOccurs="0" />
               <xs:element name="Email" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -94,10 +123,97 @@
               </xs:element>
               <xs:element name="GrupoID" type="xs:int" />
               <xs:element name="ZonaID" type="xs:int" />
+              <xs:element name="FormaPagoID" type="xs:int" minOccurs="0" />
+              <xs:element name="VendedorID" type="xs:int" minOccurs="0" />
+              <xs:element name="DiaRevision" type="xs:int" minOccurs="0" />
+              <xs:element name="DiaPago" type="xs:int" minOccurs="0" />
+              <xs:element name="CuentaBancaria" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FacturaUsoID" type="xs:int" minOccurs="0" />
+              <xs:element name="MetodoPagoID" type="xs:int" minOccurs="0" />
+              <xs:element name="FormaCompraID" type="xs:int" minOccurs="0" />
+              <xs:element name="Descuento" type="xs:double" minOccurs="0" />
+              <xs:element name="TerminalPrimariaID" type="xs:int" minOccurs="0" />
+              <xs:element name="TerminalSecundariaID" type="xs:int" minOccurs="0" />
+              <xs:element name="EntregaCalle" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EntregaNoExterior" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EntregaNoInterior" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EntregaCiudad" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EntregaMunicipio" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EntregaEstado" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EntregaCP" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NoCREE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EntregaColonia" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AutoAbasto" type="xs:boolean" minOccurs="0" />
+              <xs:element name="TransportistaID" type="xs:int" minOccurs="0" />
+              <xs:element name="FleteID" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
       </xs:choice>
     </xs:complexType>
+    <xs:unique name="PK_spCatEstacion" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//spCatEstacion" />
+      <xs:field xpath="EstacionID" />
+    </xs:unique>
   </xs:element>
 </xs:schema>

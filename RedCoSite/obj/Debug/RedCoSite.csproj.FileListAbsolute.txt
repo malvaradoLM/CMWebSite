@@ -267,10 +267,10 @@ C:\Proyectos\Comercializadora\CMWebSite\RedCoSite\bin\de\DevExpress.Sparkline.v1
 C:\Proyectos\Comercializadora\CMWebSite\RedCoSite\bin\es\DevExpress.Sparkline.v17.2.Core.resources.dll
 C:\Proyectos\Comercializadora\CMWebSite\RedCoSite\bin\ja\DevExpress.Sparkline.v17.2.Core.resources.dll
 C:\Proyectos\Comercializadora\CMWebSite\RedCoSite\bin\ru\DevExpress.Sparkline.v17.2.Core.resources.dll
+C:\Proyectos\Comercializadora\CMWebSite\RedCoSite\obj\Debug\RedCoSite.csprojResolveAssemblyReference.cache
 C:\Proyectos\Comercializadora\CMWebSite\RedCoSite\obj\Debug\RedCoSite.Data.DataModule.resources
 C:\Proyectos\Comercializadora\CMWebSite\RedCoSite\obj\Debug\RedCoSite.csproj.GenerateResource.Cache
 C:\Proyectos\Comercializadora\CMWebSite\RedCoSite\obj\Debug\RedCoSite.dll.licenses
 C:\Proyectos\Comercializadora\CMWebSite\RedCoSite\obj\Debug\RedCoSite.csproj.CoreCompileInputs.cache
 C:\Proyectos\Comercializadora\CMWebSite\RedCoSite\obj\Debug\RedCoSite.dll
 C:\Proyectos\Comercializadora\CMWebSite\RedCoSite\obj\Debug\RedCoSite.pdb
-C:\Proyectos\Comercializadora\CMWebSite\RedCoSite\obj\Debug\RedCoSite.csprojResolveAssemblyReference.cache

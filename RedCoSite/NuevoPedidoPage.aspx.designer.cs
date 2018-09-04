@@ -49,6 +49,51 @@ namespace RedCoSite {
         protected global::DevExpress.Web.ASPxComboBox cmbVolumen;
         
         /// <summary>
+        /// ASPxChkAutoAbasto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxCheckBox ASPxChkAutoAbasto;
+        
+        /// <summary>
+        /// lbltransportista control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxLabel lbltransportista;
+        
+        /// <summary>
+        /// cmbTransportista control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxComboBox cmbTransportista;
+        
+        /// <summary>
+        /// lblvehiculo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxLabel lblvehiculo;
+        
+        /// <summary>
+        /// cmbVehiculo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxComboBox cmbVehiculo;
+        
+        /// <summary>
         /// btnAddPedido control.
         /// </summary>
         /// <remarks>

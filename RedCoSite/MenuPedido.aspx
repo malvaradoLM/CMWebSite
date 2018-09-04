@@ -10,16 +10,16 @@
     </a>
             </td>
             <td>
+                 <a href="CancelacionPage.aspx" class="btn btn-danger btn-lg btncustom">
+                    <img src="Image/delivery-cancel1.png" runat="server" /><p></p><h3>CANCELACIÓN DE PEDIDOS</h3> 
+    </a>
+        
+            </td>
+            <td>
                 <a href="ConsultaPedidoPage.aspx" class="btn btn-warning btn-lg btncustom">
       <%--<span class="glyphicon glyphicon-search"></span>--%>
                     <img src="Image/delivery-find.png" runat="server" /><p></p><h3>CONSULTAR PEDIDOS</h3> 
-    </a>
-            </td>
-            <td>
-                <a href="#" class="btn btn-danger btn-lg btncustom">
-      <%--<span class="glyphicon glyphicon-lock"></span>--%>
-                    <img src="Image/delivery-folder.png" runat="server" /><p></p><h3>HISTORIAL DE PEDIDOS</h3> 
-    </a>
+    </a>       
             </td>
         </tr>
     </table>

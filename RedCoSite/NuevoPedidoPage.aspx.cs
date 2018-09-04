@@ -29,6 +29,9 @@ namespace RedCoSite
             public int EstacionID { get; set; }
             public string Estacion { get; set; }
             public DateTime Fecha { get; set; }
+            public bool AutoAbasto { get; set; }
+            public int Transportista { get; set; }
+            public int Vehiculo { get; set; }
 
         }
 
@@ -44,8 +47,12 @@ namespace RedCoSite
                 getProductos();
                 getVolumen();
                 getEstacion();
+                getEstacionAutoAbasto();
+
+             
             }
         }
+        
 
         private void fillDataGrid()
         {
@@ -61,6 +68,18 @@ namespace RedCoSite
             tp.ProductoID = int.Parse(cmbProducto.SelectedItem.Value.ToString());
             tp.Producto = cmbProducto.SelectedItem.Text;
             tp.Volumen = int.Parse(cmbVolumen.SelectedItem.Text);
+            tp.AutoAbasto = bool.Parse(ASPxChkAutoAbasto.Value.ToString());
+            if(ASPxChkAutoAbasto.Checked)
+            {
+                tp.Transportista = int.Parse(cmbTransportista.SelectedItem.Value.ToString());
+                tp.Vehiculo = int.Parse(cmbVehiculo.SelectedItem.Value.ToString());
+            }
+            else
+            {
+                tp.Transportista = 0;
+                tp.Vehiculo = 0;
+
+            }
             //ASPxComboBox cmbEstacionID = this.Master.FindControl("cmbEstacionesUsuario") as ASPxComboBox;
             tp.EstacionID = int.Parse(cmbEstacion.SelectedItem.Value.ToString());
             tp.Estacion = cmbEstacion.SelectedItem.Text;
@@ -92,10 +111,12 @@ namespace RedCoSite
                     pedido.Dia = DateTime.Today.Day;
                     pedido.Folio = 0;
                     pedido.StatusID = 1;
+                    pedido.AutoAbasto = tp.AutoAbasto;
+                    pedido.VehiculoID = tp.Vehiculo;
                     PedidoID = DataModule.DataService.GuardaPedido(pedido);
                     if (PedidoID != -1)
                     {
-                        GuardarDetallePedido(PedidoID, tp.ProductoID,tp.Volumen);
+                        GuardarDetallePedido(PedidoID, tp.ProductoID,tp.Volumen,tp.Vehiculo);
                     }
                     else
                     {
@@ -110,7 +131,7 @@ namespace RedCoSite
             }
         }
 
-        private void GuardarDetallePedido(int PedidoID,int ProductoID, int Volumen)
+        private void GuardarDetallePedido(int PedidoID,int ProductoID, int Volumen, int Vehiculo)
         {
             try
             {
@@ -119,7 +140,7 @@ namespace RedCoSite
                 detallepedido.Volumen = int.Parse(cmbVolumen.SelectedItem.Text);
                 detallepedido.PedidoID = PedidoID;
                 detallepedido.TerminalID = 1;
-                detallepedido.VehiculoID = 1;
+                detallepedido.VehiculoID = Vehiculo;
                 int DetallePedidoID = 0;
                 DetallePedidoID = DataModule.DataService.GuardaDetallePedido(detallepedido);
 
@@ -189,11 +210,80 @@ namespace RedCoSite
             cmbEstacion.DataBind();
             cmbEstacion.SelectedIndex = (int)Session["EstacionIndex"];
         }
+        private void getEstacionAutoAbasto()
+        {
+            Params.Clear();
+            Data.DataModule.ParamByName(Params, "Datos", DataModule.Seguridad.Attributes[0].ToString());
+            spCatEstacionDS ds = new spCatEstacionDS();
+            DataModule.FillDataSet(ds, "spCatEstacion", Params.ToArray());
+            DataTable dt = new DataTable();
+            dt = ds.Tables["spCatEstacion"];
+            IEnumerable<DataRow> query = from dts in dt.AsEnumerable() select dts;
+            
+            foreach (DataRow dr in query)
+            {
+                if (dr.Field<bool>("AutoAbasto"))
+                {
+                    ASPxChkAutoAbasto.Checked = dr.Field<bool>("AutoAbasto");
+                    getTransportistaVehiculo(dr.Field<int>("TransportistaID"));
+                    mostrarCampos(true);
+                }
+                else
+                {
+                    ASPxChkAutoAbasto.Checked = dr.Field<bool>("AutoAbasto");
+                    mostrarCampos(false);
+                }
+            }
+
+        }
+        private void mostrarCampos(bool bandera)
+        {
+            cmbTransportista.Visible = bandera;
+            cmbVehiculo.Visible = bandera;
+            lbltransportista.Visible = bandera;
+            lblvehiculo.Visible = bandera;
+        }
+        private void getTransportistaVehiculo(int TransportistaID)
+        {
+            spCatTransportistaDS transportista = new spCatTransportistaDS();
+            List<utileriasComun.FillCombos> listacombo = new List<utileriasComun.FillCombos>();
+            utileriasComun.FillCombos combo = new utileriasComun.FillCombos();
+
+            listacombo = combo.FillListCombo(fillComboDataset(transportista, "spCatTransportista",TransportistaID), "TransportistaID", "Nombre");
+            cmbTransportista.DataSource = listacombo;
+            cmbTransportista.ValueField = "ID";
+            cmbTransportista.TextField = "Nombre";
+            cmbTransportista.DataBind();
+            cmbTransportista.SelectedIndex = 0;
+
+            TVehiculo[] vehiculo = DataModule.DataService.GetVehiculoTransportista(TransportistaID.ToString());
+
+            
+            cmbVehiculo.DataSource = vehiculo.ToList();
+            cmbVehiculo.ValueField = "VehiculoID";
+            cmbVehiculo.TextField = "NoEconomico";
+            cmbVehiculo.DataBind();
+
+
+
+
+
+        }
+        
         private DataTable fillComboDatasetEstaciones(DataSet ds, string dstring)
         {
             DataTable dt = new DataTable();
             Params.Clear();
             Data.DataModule.ParamByName(Params, "Datos", DataModule.Seguridad.UserID);
+            DataModule.FillDataSet(ds, dstring, Params.ToArray());
+            dt = ds.Tables[dstring];
+            return dt;
+        }
+        private DataTable fillComboDataset(DataSet ds, string dstring,int param)
+        {
+            DataTable dt = new DataTable();
+            Params.Clear();
+            Data.DataModule.ParamByName(Params, "Datos", param);
             DataModule.FillDataSet(ds, dstring, Params.ToArray());
             dt = ds.Tables[dstring];
             return dt;
@@ -223,6 +313,12 @@ namespace RedCoSite
         protected void btnAddPedido_Click(object sender, EventArgs e)
         {
             addRowtoDataGrid();
+        }
+
+        protected void ASPxChkAutoAbasto_CheckedChanged(object sender, EventArgs e)
+        {
+            ASPxCheckBox ch = (sender as ASPxCheckBox);
+            mostrarCampos(ch.Checked);
         }
     }
 }

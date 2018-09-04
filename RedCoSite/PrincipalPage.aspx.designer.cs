@@ -13,6 +13,51 @@ namespace RedCoSite {
     public partial class PrincipalPage {
         
         /// <summary>
+        /// ASPxRoundPanel3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxRoundPanel ASPxRoundPanel3;
+        
+        /// <summary>
+        /// lblFecha control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxLabel lblFecha;
+        
+        /// <summary>
+        /// lbl87oct control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxLabel lbl87oct;
+        
+        /// <summary>
+        /// lbl92oct control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxLabel lbl92oct;
+        
+        /// <summary>
+        /// lbldiesel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxLabel lbldiesel;
+        
+        /// <summary>
         /// lblTotalPedidos control.
         /// </summary>
         /// <remarks>
